@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youpin Collector</title>
+  <link rel="stylesheet" href="__APP_CSS_URL__" />
+</head>
+<body class="youpin-body">
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">YOUPIN COLLECTION SYSTEM</div>
+        <h1>Youpin 独立补价控制台</h1>
+        <p>负责模板池价格抓取、浏览器上下文增强和特殊款运行时状态，不再混入 Roll 或 Compare 的页面交互。</p>
+      </div>
+      <div class="hero-actions">
+        <button id="runOnceBtn" type="button">执行一次</button>
+        <button id="startLoopBtn" type="button">启动循环</button>
+        <button id="stopLoopBtn" class="ghost" type="button">停止循环</button>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="panel accent">
+        <div class="label">循环状态</div>
+        <div id="loopState" class="value">--</div>
+        <div id="loopMeta" class="sub">等待后端状态</div>
+      </article>
+      <article class="panel">
+        <div class="label">模板池规模</div>
+        <div id="watchlistTemplateIds" class="value">--</div>
+        <div id="watchlistNames" class="sub">--</div>
+      </article>
+      <article class="panel">
+        <div class="label">已缓存价格</div>
+        <div id="youpinPrices" class="value">--</div>
+        <div class="sub">`youpin_prices`</div>
+      </article>
+      <article class="panel">
+        <div class="label">最近一次执行</div>
+        <div id="lastRunAt" class="value">--</div>
+        <div id="lastRunMessage" class="sub">尚未执行</div>
+      </article>
+    </section>
+
+    <section class="workspace">
+      <article class="panel wide">
+        <div class="panel-head">
+          <div>
+            <div class="label">浏览器上下文</div>
+            <h2>运行态增强</h2>
+          </div>
+          <button id="refreshBtn" class="ghost" type="button">刷新状态</button>
+        </div>
+        <div class="stats">
+          <div class="stat"><span>CDP</span><strong id="browserContextEnabled">--</strong></div>
+          <div class="stat"><span>连接状态</span><strong id="browserContextConnected">--</strong></div>
+          <div class="stat"><span>特殊款凭据</span><strong id="specialRuntimeActive">--</strong></div>
+          <div class="stat"><span>请求间隔</span><strong id="requestDelay">--</strong></div>
+        </div>
+      </article>
+
+      <article class="panel wide">
+        <div class="panel-head">
+          <div>
+            <div class="label">执行回执</div>
+            <h2>最近执行结果</h2>
+          </div>
+        </div>
+        <pre id="resultBox" class="result-box">等待执行...</pre>
+      </article>
+    </section>
+  </main>
+  <script src="__APP_JS_URL__"></script>
+</body>
+</html>
+

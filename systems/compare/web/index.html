@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROLL / YOUPIN CONTROL DECK</title>
+  <link rel="stylesheet" href="__APP_CSS_URL__" />
+</head>
+<body>
+  <main class="deck">
+    <header class="hero">
+      <p class="eyebrow">ROLL / YOUPIN CONTROL DECK</p>
+      <h1>CSGORoll vs Youpin898</h1>
+      <p class="hero-sub">把后端轮询、全站扫描、Youpin 登录态、筛选结果放到同一个操作台里。</p>
+      <p class="hero-tip">结果每 1 秒刷新 | 辅助信息约每 15 秒刷新</p>
+    </header>
+
+    <section class="actions">
+      <button id="btnRefresh">触发后端轮询</button>
+      <button id="btnStartLoops">启动后端监控</button>
+      <button id="btnYoupinFill">Youpin 全量补价</button>
+      <button id="btnFullScan">启动全站扫描</button>
+      <button id="btnStatus">打开状态窗口</button>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>运行总览</h2>
+        <div class="kv"><span>服务器时间</span><strong id="serverTime">--</strong></div>
+        <div class="kv"><span>后端监控</span><strong id="monitorStatus">--</strong></div>
+        <div class="kv"><span>上次构建</span><strong id="lastBuildAgo">--</strong></div>
+        <div class="kv"><span>Roll 换算率</span><strong id="rollRate">--</strong></div>
+      </article>
+      <article class="card">
+        <h2>Runtime</h2>
+        <div class="kv"><span>Roll 后端</span><strong id="rollService">--</strong></div>
+        <div class="kv"><span>Youpin 链路</span><strong id="youpinService">--</strong></div>
+        <div class="kv"><span>Serving / Warehouse</span><strong id="servingWarehouse">--</strong></div>
+        <div class="kv"><span>Fresh / Live</span><strong id="freshLive">--</strong></div>
+      </article>
+      <article class="card card-wide">
+        <h2>操作回执</h2>
+        <pre id="receiptBox">等待操作...</pre>
+      </article>
+    </section>
+
+    <section class="filters">
+      <h2>Filters</h2>
+      <input id="searchInput" type="text" placeholder="中文名 / 英文名 / 武器类型" />
+      <label><input id="profitOnly" type="checkbox" /> 只看正利润</label>
+      <label><input id="priceOnly" type="checkbox" /> 只看有价格</label>
+      <button id="btnApply">应用筛选</button>
+    </section>
+
+    <section class="results">
+      <h2>Results</h2>
+      <div id="resultsMeta" class="meta">加载中...</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>饰品</th>
+              <th>Roll 成本</th>
+              <th>Youpin 价格</th>
+              <th>利润率</th>
+              <th>状态</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody">
+            <tr><td colspan="5">加载中...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="__APP_JS_URL__"></script>
+</body>
+</html>

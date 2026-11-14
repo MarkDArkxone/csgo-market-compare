@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>系统状态</title>
+  <style>
+    body { font-family: "Microsoft YaHei", sans-serif; margin: 0; background: #f6f8fb; color: #1f2937; }
+    .wrap { max-width: 1200px; margin: 16px auto; padding: 0 12px; }
+    .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .title { font-size: 22px; font-weight: 700; }
+    .sub { font-size: 12px; color: #6b7280; }
+    .cards { display: grid; grid-template-columns: repeat(6, minmax(120px, 1fr)); gap: 10px; margin-bottom: 12px; }
+    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px; }
+    .k { font-size: 12px; color: #6b7280; }
+    .v { font-size: 18px; font-weight: 700; margin-top: 4px; }
+    .panel { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px; margin-bottom: 12px; }
+    table { width: 100%; border-collapse: collapse; }
+    td { border-bottom: 1px solid #f0f2f6; padding: 8px; font-size: 13px; }
+    td:first-child { color: #6b7280; width: 240px; }
+    .logs { height: 320px; overflow: auto; background: #0b1220; color: #e5edf8; font-family: Consolas, monospace; font-size: 12px; padding: 10px; border-radius: 8px; }
+    .log-row { margin-bottom: 6px; white-space: pre-wrap; word-break: break-word; }
+    .ok { color: #059669; }
+    .bad { color: #dc2626; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="title">系统实时状态</div>
+        <div class="sub" id="timeHint">--</div>
+      </div>
+      <button id="refreshNowBtn">立即刷新</button>
+    </div>
+
+    <div class="cards">
+      <div class="card"><div class="k">Monitor</div><div id="cMonitor" class="v">-</div></div>
+      <div class="card"><div class="k">Serving</div><div id="cServing" class="v">-</div></div>
+      <div class="card"><div class="k">Fresh Pair</div><div id="cFresh" class="v">-</div></div>
+      <div class="card"><div class="k">Verified Live</div><div id="cLive" class="v">-</div></div>
+      <div class="card"><div class="k">Exchange Rate</div><div id="cFx" class="v">-</div></div>
+      <div class="card"><div class="k">Last Error</div><div id="cError" class="v">-</div></div>
+    </div>
+
+    <div class="panel">
+      <table>
+        <tbody id="statusTable"></tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div style="font-weight:700;margin-bottom:8px;">最近日志（内存队列）</div>
+      <div id="logsBox" class="logs"></div>
+    </div>
+  </div>
+  <script src="__STATUS_JS_URL__"></script>
+</body>
+</html>

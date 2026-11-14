@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roll Collector</title>
+  <link rel="stylesheet" href="__APP_CSS_URL__" />
+</head>
+<body class="roll-body">
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">ROLL COLLECTION SYSTEM</div>
+        <h1>Roll 独立采集控制台</h1>
+        <p>只负责 Roll 数据抓取、列表轮询和目录沉淀，不再承载 Youpin 或 Compare 的前端职责。</p>
+      </div>
+      <div class="hero-actions">
+        <button id="runOnceBtn" type="button">执行一次</button>
+        <button id="startLoopBtn" type="button">启动循环</button>
+        <button id="stopLoopBtn" class="ghost" type="button">停止循环</button>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="panel accent">
+        <div class="label">循环状态</div>
+        <div id="loopState" class="value">--</div>
+        <div id="loopMeta" class="sub">等待后端状态</div>
+      </article>
+      <article class="panel">
+        <div class="label">最近一次执行</div>
+        <div id="lastRunAt" class="value">--</div>
+        <div id="lastRunMessage" class="sub">尚未执行</div>
+      </article>
+      <article class="panel">
+        <div class="label">Roll 在库条目</div>
+        <div id="rollTrades" class="value">--</div>
+        <div class="sub">`roll_trades`</div>
+      </article>
+      <article class="panel">
+        <div class="label">产品目录</div>
+        <div id="productCatalog" class="value">--</div>
+        <div id="catalogMeta" class="sub">--</div>
+      </article>
+    </section>
+
+    <section class="workspace">
+      <article class="panel wide">
+        <div class="panel-head">
+          <div>
+            <div class="label">运行参数</div>
+            <h2>采集节奏</h2>
+          </div>
+          <button id="refreshBtn" class="ghost" type="button">刷新状态</button>
+        </div>
+        <div class="stats">
+          <div class="stat"><span>每页条数</span><strong id="pageSize">--</strong></div>
+          <div class="stat"><span>每轮页数</span><strong id="pagesPerLoop">--</strong></div>
+          <div class="stat"><span>循环间隔</span><strong id="intervalSeconds">--</strong></div>
+          <div class="stat"><span>TTL</span><strong id="ttlSeconds">--</strong></div>
+        </div>
+      </article>
+
+      <article class="panel wide">
+        <div class="panel-head">
+          <div>
+            <div class="label">结果摘要</div>
+            <h2>最近执行回执</h2>
+          </div>
+        </div>
+        <pre id="resultBox" class="result-box">等待执行...</pre>
+      </article>
+    </section>
+  </main>
+  <script src="__APP_JS_URL__"></script>
+</body>
+</html>
+

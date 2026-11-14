@@ -1,0 +1,9 @@
+fastapi==0.115.2
+uvicorn[standard]==0.32.0
+httpx==0.27.2
+python-dotenv==1.0.1
+browser-cookie3==0.20.1
+playwright>=1.48,<2
+DrissionPage>=4.1,<5
+pycryptodome>=3.20,<4
+

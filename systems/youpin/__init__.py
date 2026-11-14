@@ -1,0 +1,2 @@
+"""Youpin collection system package."""
+
